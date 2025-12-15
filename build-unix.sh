@@ -19,7 +19,7 @@ cd "$BUILD_DIR"
 
 # Configure CMake project
 echo "Configuring CMake project..."
-cmake .. || { echo "CMake configuration failed"; exit 1; }
+cmake .. -DSENPAI_BUILD_EXAMPLES=ON -DSENPAI_BUILD_TESTS=ON || { echo "CMake configuration failed"; exit 1; }
 
 # Build the project
 echo "Building project..."

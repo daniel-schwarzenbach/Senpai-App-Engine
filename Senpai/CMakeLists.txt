@@ -21,9 +21,6 @@ add_subdirectory(lib/SDL_image)
 add_subdirectory(lib/SDL_mixer)
 
 
-
-
-
 # get all cpp-files
 file(GLOB_RECURSE SRC_FILES src/**.c++ CMAKE_CONFIGURE_DEPENDS)
 
@@ -34,6 +31,9 @@ if(WIN32)
 else()
     add_library(${PROJECT_NAME} ${SRC_FILES})
 endif()
+
+# Add an alias for CPM users (allows Senpai::Senpai syntax)
+add_library(Senpai::Senpai ALIAS ${PROJECT_NAME})
 
 # prioritize the SDL3 headers
 target_compile_options(${PROJECT_NAME} PRIVATE
@@ -56,6 +56,8 @@ target_precompile_headers(${PROJECT_NAME}
 
 # include directory
 target_include_directories(${PROJECT_NAME}
-   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
+   PUBLIC 
+       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+       $<INSTALL_INTERFACE:include>
+)
 

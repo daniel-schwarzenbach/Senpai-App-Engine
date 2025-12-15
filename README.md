@@ -1,6 +1,38 @@
 # The Senpai App Engine & Five Knights against King Fredrick
 
-A Five Nights at Fredies Inspired Chess Game and the Engine its running on
+A Five Nights at Fredies Inspired Chess Game and the Engine its running on.
+
+## Installation via CPM.cmake
+
+Add this to your `CMakeLists.txt`:
+
+```cmake
+cmake_minimum_required(VERSION 3.20)
+project(MyGame)
+
+# Download CPM.cmake if not present
+if(NOT EXISTS "${CMAKE_BINARY_DIR}/cmake/CPM.cmake")
+  file(DOWNLOAD 
+    https://github.com/cpm-cmake/CPM.cmake/releases/latest/download/CPM.cmake
+    "${CMAKE_BINARY_DIR}/cmake/CPM.cmake"
+  )
+endif()
+include(${CMAKE_BINARY_DIR}/cmake/CPM.cmake)
+
+# Add Senpai Engine
+CPMAddPackage(
+  NAME Senpai
+  GITHUB_REPOSITORY daniel-schwarzenbach/Senpai-App-Engine
+  GIT_TAG v0.1.0
+  OPTIONS
+    "SENPAI_BUILD_EXAMPLES OFF"
+    "SENPAI_BUILD_TESTS OFF"
+)
+
+# Your game executable
+add_executable(MyGame src/main.cpp)
+target_link_libraries(MyGame PRIVATE Senpai::Senpai)
+```
 
 # Documentation
 

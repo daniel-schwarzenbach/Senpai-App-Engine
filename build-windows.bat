@@ -22,7 +22,7 @@ cd "%BUILD_DIR%"
 
 REM Configure CMake project
 echo Configuring CMake project...
-cmake .. 
+cmake .. -DSENPAI_BUILD_EXAMPLES=ON -DSENPAI_BUILD_TESTS=ON
 if ERRORLEVEL 1 (
     echo "CMake configuration failed"
     exit /b 1
