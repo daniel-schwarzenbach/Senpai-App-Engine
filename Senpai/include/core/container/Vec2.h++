@@ -12,36 +12,36 @@ struct Vec2 {
    T x, y;
 
    inline Vec2 operator+(const Vec2& other) const {
-      return Vec2(x + other.x, y + other.y);
+      return Vec2{x + other.x, y + other.y};
    }
 
    inline Vec2 operator-(const Vec2& other) const {
-      return Vec2(x - other.x, y - other.y);
+      return Vec2{x - other.x, y - other.y};
    }
 
    template <typename T2>
    inline Vec2 operator*(const Vec2<T2>& other) const {
-      return Vec2(x * other.x, y * other.y);
+      return Vec2{x * other.x, y * other.y};
    }
 
    inline Vec2 operator/(const Vec2& other) const {
-      return Vec2(x / other.x, y / other.y);
+      return Vec2{x / other.x, y / other.y};
    }
 
    inline Vec2 operator+(T scalar) const {
-      return Vec2(x + scalar, y + scalar);
+      return Vec2{x + scalar, y + scalar};
    }
 
    inline Vec2 operator-(T scalar) const {
-      return Vec2(x - scalar, y - scalar);
+      return Vec2{x - scalar, y - scalar};
    }
 
    inline Vec2 operator*(T scalar) const {
-      return Vec2(x * scalar, y * scalar);
+      return Vec2{x * scalar, y * scalar};
    }
 
    inline Vec2 operator/(T scalar) const {
-      return Vec2(x / scalar, y / scalar);
+      return Vec2{x / scalar, y / scalar};
    }
 
    // scalar product
